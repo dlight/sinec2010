@@ -25,26 +25,6 @@ helpers do
     end
 end
 
-get '/:page/?' do |page|
-    show_page page
-end
-
-get '/:page/edit/?' do |page|
-    @markup = APP.markup
-    @page = Page.first(:name => page) || Page.new(:name => page)
-    @title = "Editing #{page}"
-    haml :edit
-end
-
-post '/:page/?' do |page|
-    @page = Page.first(:name => page) || Page.new
-    @page.name = params[:name]
-    @page.content = params[:content]
-    @page.save
-
-    redirect "/#{page}"
-end
-
 before do
     @configurable = File.writable?(CONF_FILE)
 end
@@ -53,7 +33,7 @@ get '/' do
     redirect_home
 end
 
-get '/..settings/?' do
+get '/settings/?' do
     if File.writable?(CONF_FILE)
         @settings = APP.conf
         @title = 'Settings'
@@ -93,4 +73,25 @@ delete '/:page/?' do |page|
     page.destroy unless page.nil?
 
     redirect_home
+end
+
+
+get '/:page/?' do |page|
+    show_page page
+end
+
+get '/:page/edit/?' do |page|
+    @markup = APP.markup
+    @page = Page.first(:name => page) || Page.new(:name => page)
+    @title = "Editing #{page}"
+    haml :edit
+end
+
+post '/:page/?' do |page|
+    @page = Page.first(:name => page) || Page.new
+    @page.name = params[:name]
+    @page.content = params[:content]
+    @page.save
+
+    redirect "/#{page}"
 end
