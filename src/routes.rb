@@ -7,9 +7,9 @@ APP = Qwicky.new
 helpers do
     def redirect_home
         if APP.conf['homepage'].empty?
-            redirect "/settings"
+            redirect "/..settings"
         else
-            redirect "/#{APP.conf['homepage']}"
+            show_page APP.conf['homepage']
         end
     end
 
@@ -33,7 +33,7 @@ get '/' do
     redirect_home
 end
 
-get '/settings/?' do
+get '/..settings/?' do
     if File.writable?(CONF_FILE)
         @settings = APP.conf
         @title = 'Settings'
@@ -44,7 +44,7 @@ get '/settings/?' do
     end
 end
 
-post '/settings/?' do
+post '/..settings/?' do
     APP.conf.merge!(params[:settings])
     APP.set_markup
 
@@ -57,12 +57,12 @@ post '/settings/?' do
     redirect_home
 end
 
-get '/stylesheet' do
+get '/..stylesheet' do
     content_type 'text/css'
     sass :base
 end
 
-get '/sitemap' do
+get '/..sitemap' do
     @title = 'Sitemap'
     @pages = Page.all.sort_by { |page| page.name }
     haml :sitemap
