@@ -12,17 +12,24 @@ helpers do
             show_page APP.conf['homepage']
         end
     end
-
-    def markup text
-        APP.format(text)
-    end
-
     def show_page page
+        def partial_page q
+          haml q, :layout => false
+         end
+
+        puts("----------------------------------------------")
+        @partial = proc{ |x| partial_page x }
+        puts("---------------------------------------------!")
+
         @page = Page.first(:name => page)
         redirect "/#{page}/edit" if @page.nil?
         @title = page
         haml :page
     end
+    def markup text
+        APP.format(text)
+    end
+
 end
 
 before do
@@ -77,7 +84,7 @@ end
 
 
 get '/:page/?' do |page|
-    show_page page
+    show_page(page)
 end
 
 get '/:page/edit/?' do |page|

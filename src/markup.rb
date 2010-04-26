@@ -1,3 +1,5 @@
+require 'cgi'
+
 # Markup stuff. {{{1
 module Markup
 
@@ -29,7 +31,7 @@ module Markup
 
                 klass = nexist ? 'bad' : 'good'
                 title = nexist ? "Create page `#{page}'" : "Page `#{page}'"
-                link = '/' + page
+                link = '/' + CGI::escape(page)
                 text = display_name || page
                 "<a href=#{link.inspect} title=#{title.inspect} class=#{klass.inspect}>#{text}</a>"
             end
