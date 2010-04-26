@@ -25,7 +25,7 @@ helpers do
     end
 end
 
-get '/:page/?' do
+get '/:page/?' do |page|
     show_page page
 end
 
