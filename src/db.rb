@@ -18,14 +18,14 @@ DataMapper::Logger.new(STDOUT, :debug)
 
 DataMapper::setup(:default, DB_URL)
 
-begin
-    DataMapper::auto_upgrade!
-rescue Sqlite3Error => e
-    if e.message =~ %r{unable to open database file}
-        $stderr.puts "Unable to create/open `#{DB_URL}'"
-        $stderr.puts "Please make database file readable and writable."
-        exit -1
-    else
-        raise
-    end
-end
+DataMapper::auto_upgrade!
+
+#rescue Sqlite3Error => e
+    #if e.message =~ %r{unable to open database file}
+    #    $stderr.puts "Unable to create/open `#{DB_URL}'"
+    #    $stderr.puts "Please make database file readable and writable."
+    #    exit -1
+    #else
+    #    raise
+    #end
+#end

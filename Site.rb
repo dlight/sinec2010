@@ -16,8 +16,7 @@ DIR = File.expand_path(
 )
 
 unless File.directory?(DIR)
-    puts "No such directory: #{DIR}"
-    exit -1
+    Dir.mkdir(DIR)
 end
 
 Dir.chdir(DIR)
