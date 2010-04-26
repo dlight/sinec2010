@@ -1,3 +1,6 @@
+The original author of Qwicky (Fabian Streitel) licensed his
+nice software to the public as follows:
+
 /*---- DON'T PANIC License 1.1 -----------
 
   Don't panic, this piece of software is
@@ -20,3 +23,10 @@
       him in person.
 
 ----------------------------------------*/
+
+The forking one (Elias Amaral) is licensing his bad quality
+modifications to the public under the same licensing
+conditions, EXCEPT that:
+
+* You don't have even to CONSIDER buying him a strong brownian
+  motion producer.

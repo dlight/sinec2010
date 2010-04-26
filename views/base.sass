@@ -1,0 +1,100 @@
+!border = #eee
+!emphasis = #f40
+!background = #fff
+!foreground = #000
+
+body
+  :color= !foreground
+  :background-color= !background
+
+a
+  :text-decoration none
+  :color= !emphasis
+  :border-bottom= 1px "dotted" !background
+
+  &:hover
+    :border-bottom= 1px "dotted" !emphasis
+
+  &.bad
+    :text-decoration line-through
+
+form
+
+  input, textarea
+    :border= 1px "solid" !foreground
+    :background-color= !border
+
+  textarea
+    :width 400px
+    :height 400px
+
+  input[type=text]
+    :width 250px
+
+  label
+    :display inline-block
+    :width 145px
+    :font-family monospace
+    :padding-bottom 10px
+
+#header
+  :text-align center
+  :border-bottom= 2px "solid" !border
+  :padding 5px
+
+  .right
+    :float right
+  a.edit
+    :float left
+
+#main
+  :padding 20px
+
+  ul#sitemap
+    li
+      :display inline-block
+      :width 32%
+      :margin-bottom 10px
+
+      a.edit
+        :font-family monospace
+        :font-size 0.8em
+
+  form#edit-page
+    :padding-bottom 20px
+    :border-bottom= 2px "solid" !border
+    :margin-bottom 20px
+    :width 410px
+
+    .markup
+      :float right
+      :font-family monospace
+      :padding-right 10px
+
+  pre
+    :border-left= 3px "solid" !border
+    :padding 10px
+
+  pre.simple
+    :border none
+    :padding none
+    :font-family normal
+
+  blockquote
+    :margin 0px
+    :padding 10px
+    :font-style italic
+    :border-left= 3px "solid" !border
+
+    p
+      :display inline
+      :white-space pre
+
+#footer
+  :border-top= 2px "solid" !border
+  :padding 5px
+
+  .copyleft
+    :font-family monospace
+    :float right
+

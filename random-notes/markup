@@ -1,0 +1,50 @@
+<dark> does anyone uses a "wiki" markup language? i'm reading http://stackoverflow.com/questions/659227/compare-and-contrast-the-lightweight-markup-languages-textile-markdown-and-res , is textile really popular in ruby community?
+* Radar (~radar@124-170-90-253.dyn.iinet.net.au) has joined #ruby-lang
+* carllerche has quit (Client Quit)
+<dark> i want to pick one of these and write a [[link]] layer, to use with sinatra
+* dark considering using http://www.ohloh.net/p/Qwicky
+* tomzx has quit (Quit: return 0;)
+<Judofyr> dark: Textile and Markdown are the most popular I believe
+* tomzx (~tomzx@dsl-216-221-39-141.aei.ca) has joined #ruby-lang
+* yxhuvud has quit (Ping timeout: 276 seconds)
+<dark> this license qualifies as free software, http://www.ohloh.net/licenses/DONT_PANIC_License , right? and it is gpl-compatible, right? (i know the author probably is ok if i link this code with gpl code, but an attempt to be 'nice' and fun raised a bit doubt)
+<dark> i'm asking because it's the license of http://www.ohloh.net/p/Qwicky
+<dark> Judofyr, is markdown well-supported with ruby?
+* kesselhaus has quit (Ping timeout: 258 seconds)
+<Judofyr> dark: yeah: this is a fast and nice implementation: http://rubygems.org/gems/rdiscount
+* kesselhaus (~kesselhau@tmo-101-215.customers.d1-online.com) has joined #ruby-lang
+<Judofyr> dark: for Textile, use the latest RedCloth: http://redcloth.org/
+<dark> thank you
+* mpearce (~mpearce@2002:1805:90a0:0:226:bbff:fe1b:2f57) has joined #ruby-lang
+<epitron> hahah
+<dark> the large bunch of good options adds up to my natural indecision
+<epitron> man, someone should merge all those weirdly-named-and-capitalized markup parser gems into one gem
+<epitron> and call it "markup"
+<epitron> and have a unified api
+<dark> yes, i think so too
+* rdeshpande (~rdeshpand@unaffiliated/rdeshpande) has joined #ruby-lang
+<epitron> GO GO GO
+<epitron> :)
+<Judofyr> epitron: like http://github.com/rtomayko/tilt ? 
+* mark[oz] (~markoz]@ppp118-208-146-89.lns20.bne1.internode.on.net) has joined #ruby-lang
+<Judofyr> that's the Rack of templates
+<dark> especially because there are multiple incompatible syntax out there, such as phpbb and mediawiki, and it's maybe nice to be able to use any of them if you are inclined to
+<epitron> hmmm
+<epitron> phpbb is a good idea
+<Judofyr> so you can do Tilt.new(file).render and it works even if file is "hello.markdown" or "hello.textile"
+<epitron> i actually wrote an HTML->PHPBB converter
+<dark> interesting o.o'
+<epitron> Judofyr: that's cool... it would be nice if they were all bundled into one gem
+<dark> phpbb for me is legacy, but there are people that likes it
+<epitron> i guess it doesn't really matter, since gems have dependencies
+<dark> the point is: if you can parse the data, you can write compatibility layers (something for converting a phpbb to a ruby-powered forum, etc..)
+<dark> without losing data
+* dark is amazed how this tilt is powerful
+<dark> =o
+<Judofyr> dark: but tilt is more about template engines, not markup languages though
+<Judofyr> s/but//
+<dark> hmm, he puts haml and redcloth in the same bag
+<dark> this is powerful enough for me :P
+<dark> is there a ruby forum as feature rich as vbulletin?
+<dark> or at least one that is aiming there
+<Radar> dark: http://github.com/radar/rboard ?

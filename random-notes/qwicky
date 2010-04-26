@@ -1,0 +1,5 @@
+http://www.ohloh.net/p/Qwicky
+
+gem install dm-core dm-aggregates dm-validations dm-timestamps data_objects \
+            do_sqlite3 rdiscount
+gem install karottenreibe-qwicky --source http://gems.github.com
