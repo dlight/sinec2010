@@ -10,9 +10,9 @@ Ele contém código do Qwicky. Os seguintes sites são sobre o
 Qwicky; visite-os se quiser baixar seu código, obter mais
 informações ou o ver em funcionamento:
 
-* http://github.com/karottenreibe/qwicky
-* http://www.ohloh.net/p/Qwicky
-* http://qwicky.heroku.com/Qwicky
+* [No Github]: http://github.com/karottenreibe/qwicky
+* [No Ohloh]: http://www.ohloh.net/p/Qwicky
+* [Preview no Heroku]: http://qwicky.heroku.com/Qwicky
 
 English
 ----------------
@@ -24,6 +24,6 @@ It contains code from Qwicky. The following sites are about it;
 visit them if you want to download Qwicky, to obtain more
 information or to see it working:
 
-* http://github.com/karottenreibe/qwicky
-* http://www.ohloh.net/p/Qwicky
-* http://qwicky.heroku.com/Qwicky
+* [At Github]: http://github.com/karottenreibe/qwicky
+* [At Ohloh]: http://www.ohloh.net/p/Qwicky
+* [Preview at Heroku]: http://qwicky.heroku.com/Qwicky
