@@ -1,0 +1,15 @@
+yum install apr-devel
+yum install httpd-devel
+
+http://chrisroos.co.uk/blog/2009-03-30-installing-passenger-2-1-2-on-centos-5-2
+http://www.modrails.com/documentation/Users%20guide.html#specifying_correct_apache_install
+http://github.com/swhitt/centos-apache-passenger
+
+http://work.rowanhick.com/2008/04/30/centos-5-passenger/
+http://code.google.com/p/phusion-passenger/issues/detail?id=3
+
+
+
+
+
+http://blog.zerosum.org/2008/7/4/passenger-3-sinatra
