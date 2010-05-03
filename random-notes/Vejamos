@@ -4,6 +4,13 @@ yum install httpd-devel apr-devel apr-util-devel
 
 export HOME=/home/dark
 export PATH=/home/dark/bin:/home/dark/inst/bin:$PATH
+export C_INCLUDE_PATH=/home/dark/inst/include
+export CPLUS_INCLUDE_PATH=/home/dark/inst/include
+export LD_LIBRARY_PATH=/home/dark/inst/lib
+
+? --
+export APXS2=/usr/bin/bin/apxs
+---
 
 passenger-install-apache2-module
 
@@ -19,3 +26,23 @@ http://articles.slicehost.com/2009/4/17/centos-using-mod_rails-to-serve-your-app
 
   DocumentRoot /home/dark/site/sinec2010/public
 </VirtualHost>
+
+--
+
+http://www.network-theory.co.uk/docs/gccintro/gccintro_23.html
+
+/home/dark/down-ruby
+
+--
+
+Problemas:
+
+ext/apache2/Hooks.h:39: error: expected ')' before '*' token
+
+http://groups.google.com/group/phusion-passenger/browse_thread/thread/53d285917240f71a?fwc=1
+
+http://work.rowanhick.com/2008/04/30/centos-5-passenger/
+
+http://www.modrails.com/documentation/Users%20guide%20Apache.html#_preparation_gem_and_source_tarball_only
+
+'Apxs is an integral part of any Apache installation.'
