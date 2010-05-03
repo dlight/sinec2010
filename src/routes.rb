@@ -1,6 +1,8 @@
 require 'haml'
 require 'sass'
 
+enable :sessions
+
 APP = Qwicky.new
 
 # Routes. {{{1
@@ -17,9 +19,9 @@ helpers do
           haml q, :layout => false
          end
 
-        puts("----------------------------------------------")
-        @partial = proc{ |x| partial_page x }
-        puts("---------------------------------------------!")
+        #puts("----------------------------------------------")
+        #@partial = proc{ |x| partial_page x }
+        #puts("---------------------------------------------!")
 
         @page = Page.first(:name => page)
         redirect "/#{page}/edit" if @page.nil?
@@ -75,30 +77,5 @@ get '/..sitemap' do
     haml :sitemap
 end
 
-delete '/:page/?' do |page|
-    page = Page.first(:name => page)
-    page.destroy unless page.nil?
-
-    redirect_home
-end
-
-
-get '/:page/?' do |page|
-    show_page(page)
-end
-
-get '/:page/edit/?' do |page|
-    @markup = APP.markup
-    @page = Page.first(:name => page) || Page.new(:name => page)
-    @title = "Editing #{page}"
-    haml :edit
-end
-
-post '/:page/?' do |page|
-    @page = Page.first(:name => page) || Page.new
-    @page.name = params[:name]
-    @page.content = params[:content]
-    @page.save
-
-    redirect "/#{page}"
-end
+require 'src/routes_login'
+require 'src/routes_page'

@@ -25,6 +25,7 @@ CONF_FILE = "#{DIR}/conf.yml"
 DB_URL = ENV['DATABASE_URL'] || "sqlite3://#{DIR}/db/sqlite3.db"
 STYLES_FILE = "#{DIR}/views/base.sass"
 
+require 'src/login'
 require 'src/db'
 require 'src/markup'
 require 'src/qwicky'

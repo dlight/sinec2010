@@ -1,3 +1,9 @@
 #page
+  - if session[:user] && session[:user].admin
+    %a{ :href => "/#{@page.name}/delete" }
+      Deletar
+  - if session[:user]
+    %a{ :href => "/#{@page.name}/edit" }
+      Editar
   .content
     = find_and_preserve markup(@page.content), %w{pre blockquote}

@@ -3,66 +3,72 @@
 %html{html_attrs}
 
   %head
-    %title 
+    %title
       SINEC
     /*%link{ :rel => 'shortcut icon', :href => '/..favicon' , :type => 'image/png' }*/
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
     %link{ :rel => 'stylesheet', :type => 'text/css', :href => "/..stylesheet" }
-    :javascript
-      /*global window*/
+    //:javascript
+    //  /*global window*/
 
-      function changePage() {
-          window.location.href = '/' + document.getElementById('location').value;
-          return false;
-      }
-
-      function external(link) {
-          window.open(link.href);
-          return false;
-      }
+    //  function changePage() {
+    //      window.location.href = '/' + document.getElementById('location').value;
+    //      return false;
+    //  }
+    //
+    //  function external(link) {
+    //      window.open(link.href);
+    //      return false;
+    //  }
 
   %body
+    #structure
 
-    #logo
+      #logo
 
-      .left
-        %a{ href: '/' }
-          %img{ :src => "/sinec.jpg" }
+        .left
+          %a{ href: '/' }
+            %img{ :src => "/sinec.jpg" }
 
 
 
-      //.right
-      //  %a{ :title => 'Go the the main page of this wiki', :href => '/' } Home
-      //  &#8226;
-      //  %a{ :title => 'View what pages this wiki has', :href => '/..sitemap' } Sitemap
-      - if @page
-        //%a.edit{ :title => 'Edit this wiki page', :href => "/#{@page.name}/edit" } Edit
-      //%form{ :action => '/', :method => 'get', :onsubmit => 'return changePage()' }
-      //  %input#location{ :type => 'text', :name => 'location' }
-      //  %input{ :type => 'submit', :value => 'Go!' }
+        //.right
+        //  %a{ :title => 'Go the the main page of this wiki', :href => '/' } Home
+        //  &#8226;
+        //  %a{ :title => 'View what pages this wiki has', :href => '/..sitemap' } Sitemap
+        - if @page
+          //%a.edit{ :title => 'Edit this wiki page', :href => "/#{@page.name}/edit" } Edit
+        //%form{ :action => '/', :method => 'get', :onsubmit => 'return changePage()' }
+        //  %input#location{ :type => 'text', :name => 'location' }
+        //  %input{ :type => 'submit', :value => 'Go!' }
 
-    //#header
-    //  %p Lalala
+      //#header
+      //  %p Lalala
 
-    %br
+      %br
 
-    #main
-      #menu
-        = haml :menu, :layout => false
+      = show_flash
 
+
+      #main
+        #menu
+          = haml :menu, :layout => false
+
+      - if session[:user]
+        = haml :admin_bar, :layout => false
       = yield
 
-    //#footer
-    //  .copyleft
-    //    (c) 2009 by
-    //    %a{ :title => "Visit karottenreibe's glorious homepage", :href => 'http://karottenreibe.heroku.com'} karottenreibe
-    //    (karottenreibe _at_ gmail _dot_ com)
-    //    %br/
-    //    Licensed under the
-    //    %a{ :title => 'The License of Qwicky', :href => '/..license' } DONT'T PANIC License 1.1
-    //    %br/
-    //    If you want to contribute, visit
-    //    %a{ :title => 'Here you can contribute to the project', :href => 'http://wiki.github.com/karottenreibe/qwicky/' } Qwicky's GitHub page
-    //  - if @page
-    //    %a.edit{ :title => 'Edit this wiki page', :href => "/#{@page.name}/edit" } Edit
+      //#footer
+      //  .copyleft
+      //    (c) 2009 by
+      //    %a{ :title => "Visit karottenreibe's glorious homepage", :href => 'http://karottenreibe.heroku.com'} karottenreibe
+      //    (karottenreibe _at_ gmail _dot_ com)
+      //    %br/
+      //    Licensed under the
+      //    %a{ :title => 'The License of Qwicky', :href => '/..license' } DONT'T PANIC License 1.1
+      //    %br/
+      //    If you want to contribute, visit
+      //    %a{ :title => 'Here you can contribute to the project', :href => 'http://wiki.github.com/karottenreibe/qwicky/' } Qwicky's GitHub page
+      //  - if @page
+      //    %a.edit{ :title => 'Edit this wiki page', :href => "/#{@page.name}/edit" } Edit
 
