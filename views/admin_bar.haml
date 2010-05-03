@@ -1,8 +1,13 @@
-Logado como
+%p
+  Logado como
 
-= session[:user].page
+  = session[:user].page
 
-- if session[:user] && session[:user].admin
-  %a{ href: "/..create-user" } Novo Usuario
-%a{ href: "/..logout" }
-  Logout
+  %a{ href: "/..logout" } Logout
+  |
+  %a{ href: "/..sitemap" } Paginas
+  |
+  %a{ href: "/..list-users" } Usuarios
+  - if session[:user] && session[:user].admin
+    |
+    %a{ href: "/..create-user" } Novo Usuario

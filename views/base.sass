@@ -14,6 +14,9 @@
 !logo = #ffffff
 //#baeeff
 
+img
+  :border 0
+
 body
   :margin 0
   :color= !foreground
@@ -21,7 +24,6 @@ body
   :font-family "Helvetica, Arial, sans-serif"
 
 form
-
   input, textarea
     :border= 1px "solid" !foreground
     :background-color= !border
@@ -39,14 +41,28 @@ form
     :font-family monospace
     :padding-bottom 10px
 
+#structure
+  :width 640px
+  :margin-left auto
+  :margin-right auto
+
 #logo
-  :background-color= !logo
-  :text-align center
+  a
+    :display block
+    :width 640px
+    :height 256px
+
+  :background-image url("/sinec.jpg")
+  :background-color #ffffff
+  :width 640px
+  :height 256px
+  //:background-color= !logo
+  //:text-align center
   :border-bottom= 2px "solid" !border
   
-  :padding-bottom 100px
-  .left
-    :float left
+  //:padding-bottom 100px
+  //.left
+  //  :float left
 
 #header
   p
@@ -58,40 +74,64 @@ form
     :float left
 
 #main
+  :background #ffffff
 
-
-  :padding 3px
+  //:padding 3px
   //:float left
 
   #menu
+    //:background-image url('bar.jpg')
+    //:background-color #003454
     //:width 10%
-    :float left
-    :display block
+    //:float left
+    //:display block
 
     //:padding-right 10px
     //:padding-left 10px
 
-    :width 160px
+    //:width 160px
 
+    //:background-repeat repeat-x
+    //:background-position center
+
+    //:height 28px
+    //:display table
+
+    :text-align center
+    //:position relative
+    :padding-top 0px
+    :margin-top 6px
+    p
+      :margin-top 10px
+      //:position relative
+      //:line-height 28px
+      //:vertical-align bottom
     a
+      :border 1px solid  #236c99
+      //:padding-left 7px
+      :padding-top 3px
+      :padding-bottom 3px
+      //:width 120px
       :font-family 'monospace'
       :text-decoration none
-      :text-align left
-      :display block
+      //:display block
       //:width 32%
       :color= !item_menu_fg
-      :background-color= !item_menu_bg
-      :padding 2px
+      :background-color #2f90cc
+      //:padding 4px
       :margin 2px
       :color= !item_menu_fg
       &:hover
-        :background-color= !menu_hover
+        :background-color #003454
         :color= !menu_hover_fg
         :font-weight 700
 
-    :margin 0px
-    :padding 0px
-    :list-style none
+    //:margin 0px
+    //:padding 0px
+    //:list-style none
+
+  p#adm
+    :text-align right
 
   #page
     :color= !text_color
@@ -151,6 +191,11 @@ form
 #footer
   :border-top= 2px "solid" !border
   :padding 5px
+
+  a
+    :font-size 0.7em
+    :text-decoration none
+  :text-align right
 
   .copyleft
     :font-family monospace

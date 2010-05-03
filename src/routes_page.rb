@@ -2,7 +2,6 @@ get '/:page/delete/?' do |page|
     if session[:user] && session[:user].admin
       page = Page.first(:name => page)
       page.destroy unless page.nil?
-      flash "Pagina apagada"
     end
     redirect '/'
 end
@@ -17,7 +16,7 @@ get '/:page/edit/?' do |page|
     else
       @markup = APP.markup
       @page = Page.first(:name => page) || Page.new(:name => page)
-      @title = "Editing #{page}"
+      @title = "Editando #{page}"
       haml :edit
     end
 end

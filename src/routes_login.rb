@@ -4,17 +4,15 @@ end
 
 post '/..login' do
   if session[:user] = User.authenticate(params["email"], params["password"])
-    flash("Login successful")
     redirect '/'
   else
-    flash("Login failed - Try again")
+    flash("Senha e/ou usuario incorreto.")
     redirect '/..login'
   end
 end
 
 get '/..logout' do
   session[:user] = nil
-  flash("Logout successful")
   redirect '/'
 end
 
@@ -28,7 +26,6 @@ post '/..create-user' do
   u.password = params["password"]
   u.page = params["page"]
   if u.save
-    flash("User created")
     redirect '/..list-users'
   else
     tmp = []

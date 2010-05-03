@@ -25,28 +25,26 @@
     #structure
 
       #logo
+        %a{ href: "/" }
 
-        .left
-          %a{ href: '/' }
-            %img{ :src => "/sinec.jpg" }
+      //.left
+      //  %a{ href: '/' } 
+      //%img{ :src => "/sinec.jpg" }
 
 
 
-        //.right
-        //  %a{ :title => 'Go the the main page of this wiki', :href => '/' } Home
-        //  &#8226;
-        //  %a{ :title => 'View what pages this wiki has', :href => '/..sitemap' } Sitemap
-        - if @page
-          //%a.edit{ :title => 'Edit this wiki page', :href => "/#{@page.name}/edit" } Edit
-        //%form{ :action => '/', :method => 'get', :onsubmit => 'return changePage()' }
-        //  %input#location{ :type => 'text', :name => 'location' }
-        //  %input{ :type => 'submit', :value => 'Go!' }
+      //.right
+      //  %a{ :title => 'Go the the main page of this wiki', :href => '/' } Home
+      //  &#8226;
+      //  %a{ :title => 'View what pages this wiki has', :href => '/..sitemap' } Sitemap
+      //- if @page
+      //%a.edit{ :title => 'Edit this wiki page', :href => "/#{@page.name}/edit" } Edit
+      //%form{ :action => '/', :method => 'get', :onsubmit => 'return changePage()' }
+      //  %input#location{ :type => 'text', :name => 'location' }
+      //  %input{ :type => 'submit', :value => 'Go!' }
 
       //#header
       //  %p Lalala
-
-      %br
-
       = show_flash
 
 
@@ -57,6 +55,10 @@
       - if session[:user]
         = haml :admin_bar, :layout => false
       = yield
+
+      #footer
+        - if not session[:user]
+          %a{href: '/..login'} login
 
       //#footer
       //  .copyleft
