@@ -1,0 +1,21 @@
+passos:
+
+yum install httpd-devel apr-devel apr-util-devel
+
+export HOME=/home/dark
+export PATH=/home/dark/bin:/home/dark/inst/bin:$PATH
+
+passenger-install-apache2-module
+
+
+http://articles.slicehost.com/2009/4/7/centos-mod_rails-installation
+http://articles.slicehost.com/2009/4/7/centos-ruby-on-rails
+http://articles.slicehost.com/2009/4/17/centos-using-mod_rails-to-serve-your-application
+
+
+<VirtualHost *:80>
+  ServerName  sinec2010.engcomp.ufrn.br
+  ServerAlias www.domain1.com
+
+  DocumentRoot /home/dark/site/sinec2010/public
+</VirtualHost>
